@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Rating from "./Rating";
 
 const Product = () => {
   const [items, setItems] = useState([]);
@@ -51,6 +52,8 @@ const Product = () => {
           />
         </div>
       </div>
+      <Rating ratingValue="rate" value={item.rating.rate} />
+      <Rating ratingValue="count" value={item.rating.count} />
     </div>
   ));
 
