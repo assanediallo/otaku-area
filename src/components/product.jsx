@@ -45,7 +45,7 @@ const Product = () => {
           <span className="price">{item.price}€</span>
           <input
             type="submit"
-            value="AJOUTER AU PANIER"
+            value="ADD TO CART"
             className="card-btn"
             onClick={() => addToCart(item)}
           />
