@@ -7,7 +7,7 @@ function Rating(props) {
     <div>
       {ratingValue === "rate" ? (
         range.map((element) =>
-          value >= element ? <span key={element.toString()}>★</span> : null
+          value >= element ? <span key={element.toString()}>★</span> : "☆"
         )
       ) : (
         <span>({value} reviews)</span>
