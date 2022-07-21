@@ -27,7 +27,7 @@ function Header (){
                     </form>
                 </div>
                 <div class="account-log">
-                    <a href="/account" className="account">
+                    <a href="/Login" className="account">
                         <FaUserAlt />
                      </a>
                 </div>
