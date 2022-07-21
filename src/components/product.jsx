@@ -5,17 +5,12 @@ import Rating from "./Rating";
 const Product = () => {
   const [items, setItems] = useState([]);
   const [cart, setCart] = useState([]);
-  const [alert, setAlert] = useState("");
-  const [loading, setLoading] = useState(true);
-  const [url, setUrl] = useState("https://fakestoreapi.com/products");
-  //console.log(cart);
+  const url = "https://fakestoreapi.com/products";
 
   const getAllItems = async () => {
-    setLoading(true);
     await axios.get(url).then((result) => {
       setItems(result.data);
     });
-    setLoading(false);
   };
 
   useEffect(() => {
@@ -25,13 +20,17 @@ const Product = () => {
   const addToCart = (item) => {
     let canAdd = true;
     for (let idxCart = 0; idxCart < cart.length; idxCart++) {
-      if (cart[idxCart].id === item.id) canAdd = false;
+      if (cart[idxCart].id === item.id) {
+        canAdd = false;
+        item.qty += 1;
+      }
     }
-    if (canAdd) {
+    if (canAdd && !item.qty) {
+      item.qty = 0;
       setCart([...cart, item]);
-      setAlert("");
+      item.qty += 1;
       //console.log(cart);
-    } else setAlert(`le ${item.name} est déjà dans votre panier`);
+    }
   };
 
   const ListItems = items.map((item) => (
