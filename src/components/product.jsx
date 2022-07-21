@@ -40,7 +40,7 @@ const Product = () => {
           <img src={item.image} className="product-thumb" alt="" />
         </div>
         <div className="product-info">
-          <h2 className="product-name">{item.name}</h2>
+          <h2 className="product-name">{item.title}</h2>
           <p className="product-short-des">{item.description}</p>
           <span className="price">{item.price}€</span>
           <input
