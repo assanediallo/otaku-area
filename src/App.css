@@ -28,6 +28,25 @@
   color: #61dafb;
 }
 
+
+.list_category{
+  position:relative;
+  width: 65%;
+  justify-content: center;
+  align-items: center;
+  color: aliceblue;
+  display:inline-flex; 
+  
+}
+
+li{
+  justify-content: center;
+  padding-right: 25px;
+  list-style: none;
+  display: inline;  
+}
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

@@ -1,6 +1,6 @@
 
 import './App.css';
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
 
 import Header from './components/Header'
 import Footer from './components/Footer'
@@ -15,11 +15,24 @@ import { useState } from 'react';
 function App() {
   const [token, setToken]=useState('')
 
-  return (
+  const tests= 
+  [{name: "Men"},
+  {name:"Women"},
+  {name:"Jewelery"},
+  {name:"Electronics"}]
 
+  return (
+    
     <div className="App">
-      <Header />
-      <BrowserRouter>
+      <Header>
+      <ul className="list_category">
+        {tests.map(test=>
+          <li>
+            <Link to={"/"+test.name}>{test.name}</Link>
+          </li>
+        )} 
+      </ul>
+      </Header>
         <Routes>
           <Route path="/Login" element={ <Login token={token} setToken={setToken}/>}/>
           <Route path="/Men" element={ <Men />}/>
@@ -27,7 +40,6 @@ function App() {
           <Route path="/Jewelery" element={ <Jewelery />}/>
           <Route path="/Electronics" element={ <Electronics />}/>
         </Routes>
-      </BrowserRouter>
       <Footer />
     </div>
   );

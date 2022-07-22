@@ -7,7 +7,7 @@ import { AiOutlineSearch } from 'react-icons/ai';
 
 
 
-function Header (){
+function Header ({children}){
 
 
     return(
@@ -19,7 +19,7 @@ function Header (){
             </div>
             <div className='grid_item'>
 
-            <Category/>
+            <Category children={children}/>
                 <div class="search" >
                     <form action="/search" method="get" class="site-header__search small--hide" role="search">
                         <input className='search' type="search" name="q" id="SiteNavSearch" placeholder="Recherche" aria-label="Recherche" class="site-header__search-input"/>
