@@ -5,6 +5,8 @@ import { FaUserAlt } from 'react-icons/fa';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { AiOutlineSearch } from 'react-icons/ai';
 
+
+
 function Header (){
 
 

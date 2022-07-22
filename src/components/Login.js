@@ -17,14 +17,6 @@ export default function Login ({token, setToken}){
         <div className="error">{errorMessages.message}</div>
     );
 
-    /*const recup = async()=>{
-        await axios.post('https://fakestoreapi.com/auth/login')
-        .then (res=> {
-            console.log(res.userData)
-			setData (res.userData)
-		})
-    }*/
-
 
     const handleSubmit = async(event) => {
         event.preventDefault();
@@ -42,32 +34,6 @@ export default function Login ({token, setToken}){
 
 
     }
-    
-
-    
-
-
-        // Comparer user info
-
-        
-        /*if (userData) {
-            if (userData.password !== password) {
-                setErrorMessages({ name: "pass", message: errors.password });
-            } else if (userData.email !== uname) {
-                setErrorMessages({ name: "pass", message: errors.password });
-            }
-            else{
-                setIsSubmitted(true);
-            }
-            
-            useEffect(()=>{
-        (
-            async()=>{
-                res
-            }
-        )
-    });
-            */
 
     const renderForm = (
         <div className="form">
