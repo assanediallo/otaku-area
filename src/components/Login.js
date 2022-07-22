@@ -1,10 +1,9 @@
 import '../styles/Login.css'
 import { useState, useEffect } from 'react';
 import axios from "axios"
-export default function Login (){
+export default function Login ({token, setToken}){
     const [errorMessages, setErrorMessages] = useState({});
     const [isSubmitted, setIsSubmitted] = useState(false);
-    const [userData,setData]= useState({});
     const [password,setPassword]=useState('');
     const [uname,setUname]=useState('');
     
@@ -18,23 +17,39 @@ export default function Login (){
         <div className="error">{errorMessages.message}</div>
     );
 
-    const recup = async()=>{
+    /*const recup = async()=>{
         await axios.post('https://fakestoreapi.com/auth/login')
         .then (res=> {
             console.log(res.userData)
 			setData (res.userData)
 		})
-    }
+    }*/
 
 
     const handleSubmit = async(event) => {
         event.preventDefault();
-        console.log(uname+" "+password)
-        console.log()
+
         const dataAEnvoyer = {username: uname, password: password}
-        const res = await axios.post('https://fakestoreapi.com/auth/login', dataAEnvoyer)
-        console.log(res)
+        const res =
+        await axios.post('https://fakestoreapi.com/auth/login', dataAEnvoyer)
+        .then(res => {
+            console.log(res.data.token)
+            setToken(res.data.token)
+            setIsSubmitted(true);
+        }) 
+
+        //axios.defaults.headers.common['Authorization']= `Bearer ${res.data['token']}`;
+
+
+    }
+    
+
+    
+
+
         // Comparer user info
+
+        
         /*if (userData) {
             if (userData.password !== password) {
                 setErrorMessages({ name: "pass", message: errors.password });
@@ -43,9 +58,16 @@ export default function Login (){
             }
             else{
                 setIsSubmitted(true);
-            }*/
-    }
-    
+            }
+            
+            useEffect(()=>{
+        (
+            async()=>{
+                res
+            }
+        )
+    });
+            */
 
     const renderForm = (
         <div className="form">
@@ -71,7 +93,7 @@ export default function Login (){
         <div className="app">
           <div className="login-form">
             <div className="title">Sign In</div>
-            {isSubmitted ? <div>User is successfully logged in</div> : renderForm}
+            {isSubmitted ?  <div>User is successfully logged in</div> : renderForm}
           </div>
         </div>
       );
